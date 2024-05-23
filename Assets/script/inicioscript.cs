@@ -20,11 +20,20 @@ public class inicioscript : MonoBehaviour
             // Cargar la escena "0menu"
             SceneManager.LoadScene("0menu");
         }
+          if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // Verificar si estamos en la escena "cinematica"
+            if (SceneManager.GetActiveScene().name == "cinematica")
+            {
+                SceneManager.LoadScene("1circo");
+            }
+        }
     }
 
     public void StartGame()
     {
-        SceneManager.LoadScene("1circo");
+        SceneManager.LoadScene("cinematica");
+        
     }
 
     public void AgradecimientosGame()
@@ -36,6 +45,13 @@ public class inicioscript : MonoBehaviour
     {
         Debug.Log("salida");
         Application.Quit();
+    }
+
+    public void SuenaBoton(){
+        AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxButton);
+    }
+    public void SuenaBeso(){
+        AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxButtonAgradecimientos);
     }
 }
 
